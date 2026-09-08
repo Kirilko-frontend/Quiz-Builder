@@ -1,17 +1,24 @@
+@use "sass:map";
+
+@use "@styles/variables" as *;
+
 .quiz-details {
   width: 100%;
   max-width: 64rem;
+
   margin: 0 auto;
+
   padding: var(--spacing-lg);
 }
 
 .quiz-details__title {
   margin: 0 0 var(--spacing-xl);
 
+  color: rgb(var(--color-text));
+
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
-
-  color: rgb(var(--color-text));
+  line-height: var(--line-height-sm);
 }
 
 .quiz-details__questions {
@@ -38,24 +45,26 @@
 .quiz-details__question-title {
   margin: 0;
 
+  color: rgb(var(--color-text));
+
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
-
-  color: rgb(var(--color-text));
+  line-height: var(--line-height-sm);
 }
 
 .quiz-details__type {
   margin: 0;
 
+  color: rgb(var(--color-text-muted));
+
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-
-  color: rgb(var(--color-text-muted));
 }
 
 .quiz-details__answers {
-  font-size: var(--font-size-sm);
   color: rgb(var(--color-text-secondary));
+
+  font-size: var(--font-size-sm);
 }
 
 .quiz-details__answers p {
@@ -75,7 +84,7 @@
   color: rgb(var(--color-success));
 }
 
-@media (min-width: 640px) {
+@media (min-width: map.get($breakpoints, sm)) {
   .quiz-details {
     padding: var(--spacing-xl);
   }
@@ -85,7 +94,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: map.get($breakpoints, md)) {
   .quiz-details {
     padding: var(--spacing-2xl);
   }
