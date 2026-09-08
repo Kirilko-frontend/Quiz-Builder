@@ -28,6 +28,9 @@ A full-stack quiz builder application built with React, Next.js, NestJS, TypeScr
 Quiz-Builder/
 ├── backend/
 │   ├── prisma/
+│   │   ├── migrations/
+│   │   ├── schema.prisma
+│   │   └── seed.ts
 │   └── src/
 └── frontend/
     ├── app/
@@ -83,6 +86,26 @@ Generate the Prisma client if needed:
 ```bash
 npx prisma generate
 ```
+
+## Seed Sample Data
+
+The project includes a Prisma seed script that creates a sample quiz containing all supported question types.
+
+From the `backend` directory:
+
+```bash
+npx prisma db seed
+```
+
+The seed creates a **JavaScript Basics** quiz with Boolean, Input and Checkbox questions.
+
+After running the seed, open:
+
+```text
+http://localhost:3000/quizzes
+```
+
+to view the sample quiz.
 
 ## Start Backend
 
@@ -148,6 +171,8 @@ DELETE /quizzes/:id
 
 ## Creating a Sample Quiz
 
+### Using the UI
+
 1. Start the backend and frontend.
 2. Open `http://localhost:3000/create`.
 3. Enter a quiz title.
@@ -161,6 +186,29 @@ DELETE /quizzes/:id
 7. Click **Create quiz**.
 8. Open `/quizzes` to see the created quiz.
 9. Open the quiz details to verify the questions and correct answers.
+
+### Using the Seed Script
+
+A sample quiz containing all three supported question types can be created using Prisma seed:
+
+```bash
+cd backend
+npx prisma db seed
+```
+
+The seed creates the following sample quiz:
+
+**JavaScript Basics**
+
+* Boolean questions
+* Input questions
+* Checkbox questions with multiple correct answers
+
+Then open:
+
+```text
+http://localhost:3000/quizzes
+```
 
 ## Code Quality
 
@@ -216,5 +264,6 @@ npm run build
 * View all created quizzes
 * View quiz details
 * Delete quizzes
+* Prisma seed script with sample quiz
 * PostgreSQL persistence
 * Responsive UI
