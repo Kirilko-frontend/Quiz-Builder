@@ -87,7 +87,7 @@
 }
 
 .question-editor__answers {
-  @include flex-column;
+  @include flex-column-start;
 
   gap: var(--spacing-sm);
 }
