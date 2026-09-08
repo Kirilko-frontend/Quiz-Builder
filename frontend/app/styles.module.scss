@@ -1,0 +1,150 @@
+@use "@styles/mixins" as *;
+
+.home-page {
+  @include flex-center;
+
+  width: 100%;
+  min-height: calc(100vh - 2rem);
+
+  padding: var(--spacing-lg);
+}
+
+.home-page__hero {
+  @include flex-column-center;
+
+  width: 100%;
+  max-width: 48rem;
+
+  text-align: center;
+}
+
+.home-page__badge {
+  margin-bottom: var(--spacing-md);
+
+  padding: var(--spacing-xs) var(--spacing-md);
+
+  border-radius: var(--radius-full);
+
+  background-color: rgb(var(--color-surface-muted));
+
+  color: rgb(var(--color-accent));
+
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.home-page__title {
+  margin: 0;
+
+  color: rgb(var(--color-white));
+
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-extrabold);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.home-page__description {
+  max-width: 36rem;
+
+  margin: var(--spacing-lg) 0 0;
+
+  color: rgb(var(--color-text-secondary));
+
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-lg);
+}
+
+.home-page__actions {
+  @include flex-column;
+  gap: var(--spacing-sm);
+
+  width: 100%;
+
+  margin-top: var(--spacing-xl);
+}
+
+.home-page__button,
+.home-page__button-secondary {
+  @include flex-center;
+
+  min-height: 48px;
+
+  padding: 0 var(--spacing-xl);
+
+  border-radius: var(--radius-md);
+
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+
+  text-decoration: none;
+
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.home-page__button {
+  background-color: rgb(var(--color-accent));
+  color: rgb(var(--color-white));
+}
+
+.home-page__button:hover {
+  background-color: rgb(var(--color-accent-hover));
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.home-page__button-secondary {
+  background-color: rgb(var(--color-surface));
+
+  border: 1px solid rgb(var(--color-border));
+
+  color: rgb(var(--color-text));
+}
+
+.home-page__button-secondary:hover {
+  background-color: rgb(var(--color-surface-muted));
+  transform: translateY(-1px);
+}
+
+.home-page__button:focus-visible,
+.home-page__button-secondary:focus-visible {
+  outline: 3px solid rgb(var(--color-accent), 0.2);
+  outline-offset: 2px;
+}
+
+@media (min-width: 640px) {
+  .home-page {
+    min-height: calc(100vh - 3rem);
+
+    padding: var(--spacing-xl);
+  }
+
+  .home-page__title {
+    font-size: 3rem;
+  }
+
+  .home-page__actions {
+    flex-direction: row;
+    justify-content: center;
+
+    width: auto;
+  }
+
+  .home-page__button,
+  .home-page__button-secondary {
+    min-width: 160px;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-page__title {
+    font-size: 3.5rem;
+  }
+
+  .home-page__description {
+    font-size: var(--font-size-lg);
+  }
+}
