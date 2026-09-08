@@ -1,0 +1,30 @@
+.quizzes-page {
+  width: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+.quizzes-page__title {
+  margin-bottom: var(--spacing-lg);
+
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: rgb(var(--color-text));
+}
+
+@media (min-width: 640px) {
+  .quizzes-page {
+    padding: var(--spacing-xl);
+  }
+
+  .quizzes-page__title {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+@media (min-width: 768px) {
+  .quizzes-page {
+    padding: var(--spacing-2xl);
+  }
+}

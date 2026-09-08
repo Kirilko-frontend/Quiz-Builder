@@ -1,9 +1,7 @@
 "use client";
 
-import { useState } from "react";
-
-import { QuestionType } from "@models/question";
 import { createQuiz } from "@services/quizzes";
+
 import { CreateQuizData } from "@models/createQuizData";
 
 import QuizForm from "@components/QuizForm";
