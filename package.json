@@ -1,0 +1,25 @@
+{
+  "name": "quiz-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kirilko-frontend/Quiz-Builder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Kirilko-frontend/Quiz-Builder/issues"
+  },
+  "homepage": "https://github.com/Kirilko-frontend/Quiz-Builder#readme",
+  "devDependencies": {
+    "prettier": "^3.9.6"
+  }
+}
