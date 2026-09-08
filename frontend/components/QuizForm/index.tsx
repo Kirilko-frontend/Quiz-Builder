@@ -3,6 +3,7 @@ import { useState, type FormEvent } from "react";
 import type { CreateQuizData } from "@models/createQuizData";
 
 import QuestionEditor from "./components/QuestionEditor";
+import { createQuizSchema } from "schemas/quiz";
 
 import styles from "./styles.module.scss";
 
@@ -27,15 +28,27 @@ export default function QuizForm({ onSubmit }: IProps) {
     ]);
   };
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
-    const data = {
+    const data: CreateQuizData = {
       title,
-      questions: questions.map(({ id, ...question }) => question),
+      questions,
     };
 
-    onSubmit(data);
+    const result = createQuizSchema.safeParse(data);
+
+    if (!result.success) {
+      console.log(result.error);
+      return;
+    }
+
+    console.log(result.data);
+
+    await onSubmit(result.data);
+
+    setTitle("");
+    setQuestions([]);
   };
 
   return (
@@ -71,17 +84,18 @@ export default function QuizForm({ onSubmit }: IProps) {
         />
       ))}
 
-      <button
-        className={styles["quiz-form__button"]}
-        type="button"
-        onClick={addQuestion}
-      >
-        Add question
-      </button>
-
-      <button className={styles["quiz-form__button"]} type="submit">
-        Create quiz
-      </button>
+      <div className={styles["quiz-form__actions"]}>
+        <button
+          className={styles["quiz-form__button"]}
+          type="button"
+          onClick={addQuestion}
+        >
+          Add question
+        </button>
+        <button className={styles["quiz-form__button"]} type="submit">
+          Create quiz
+        </button>
+      </div>
     </form>
   );
 }
