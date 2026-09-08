@@ -1,9 +1,9 @@
-import type { CreateQuizData } from "@models/createQuizData";
-import type { QuestionType } from "@models/question";
+import type { CreateQuizData } from '@models/createQuizData';
+import type { QuestionType } from '@models/question';
 
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
-type QuestionData = CreateQuizData["questions"][number];
+type QuestionData = CreateQuizData['questions'][number];
 
 type IProps = {
   question: QuestionData;
@@ -25,15 +25,15 @@ export default function QuestionEditor({
 
   const handleTypeChange = (type: QuestionType) => {
     let options: string[] = [];
-    let correctAnswer: unknown = "";
+    let correctAnswer: unknown = '';
 
-    if (type === "BOOLEAN") {
-      options = ["True", "False"];
+    if (type === 'BOOLEAN') {
+      options = ['True', 'False'];
       correctAnswer = true;
     }
 
-    if (type === "CHECKBOX") {
-      options = ["", ""];
+    if (type === 'CHECKBOX') {
+      options = ['', ''];
       correctAnswer = [];
     }
 
@@ -88,12 +88,12 @@ export default function QuestionEditor({
   };
 
   return (
-    <div className={styles["question-editor"]}>
-      <div className={styles["question-editor__header"]}>
-        <span className={styles["question-editor__number"]}>Question</span>
+    <div className={styles['question-editor']}>
+      <div className={styles['question-editor__header']}>
+        <span className={styles['question-editor__number']}>Question</span>
 
         <button
-          className={styles["question-editor__remove"]}
+          className={styles['question-editor__remove']}
           type="button"
           onClick={onRemove}
         >
@@ -101,20 +101,20 @@ export default function QuestionEditor({
         </button>
       </div>
 
-      <label className={styles["question-editor__label"]}>
+      <label className={styles['question-editor__label']}>
         Question
         <input
-          className={styles["question-editor__input"]}
+          className={styles['question-editor__input']}
           type="text"
           value={question.text}
           onChange={(event) => handleTextChange(event.target.value)}
         />
       </label>
 
-      <label className={styles["question-editor__label"]}>
+      <label className={styles['question-editor__label']}>
         Type
         <select
-          className={styles["question-editor__select"]}
+          className={styles['question-editor__select']}
           value={question.type}
           onChange={(event) =>
             handleTypeChange(event.target.value as QuestionType)
@@ -126,9 +126,9 @@ export default function QuestionEditor({
         </select>
       </label>
 
-      {question.type === "BOOLEAN" && (
-        <div className={styles["question-editor__answers"]}>
-          <label className={styles["question-editor__option"]}>
+      {question.type === 'BOOLEAN' && (
+        <div className={styles['question-editor__answers']}>
+          <label className={styles['question-editor__option']}>
             <input
               type="radio"
               name={`question-${question.id}`}
@@ -138,7 +138,7 @@ export default function QuestionEditor({
             True
           </label>
 
-          <label className={styles["question-editor__option"]}>
+          <label className={styles['question-editor__option']}>
             <input
               type="radio"
               name={`question-${question.id}`}
@@ -150,26 +150,26 @@ export default function QuestionEditor({
         </div>
       )}
 
-      {question.type === "INPUT" && (
-        <label className={styles["question-editor__label"]}>
+      {question.type === 'INPUT' && (
+        <label className={styles['question-editor__label']}>
           Correct answer
           <input
-            className={styles["question-editor__input"]}
+            className={styles['question-editor__input']}
             type="text"
             value={
-              typeof question.correctAnswer === "string"
+              typeof question.correctAnswer === 'string'
                 ? question.correctAnswer
-                : ""
+                : ''
             }
             onChange={(event) => handleInputChange(event.target.value)}
           />
         </label>
       )}
 
-      {question.type === "CHECKBOX" && (
-        <div className={styles["question-editor__answers"]}>
+      {question.type === 'CHECKBOX' && (
+        <div className={styles['question-editor__answers']}>
           {question.options.map((option, index) => (
-            <div className={styles["question-editor__checkbox"]} key={index}>
+            <div className={styles['question-editor__checkbox']} key={index}>
               <input
                 type="checkbox"
                 checked={
@@ -180,7 +180,7 @@ export default function QuestionEditor({
               />
 
               <input
-                className={styles["question-editor__input"]}
+                className={styles['question-editor__input']}
                 type="text"
                 value={option}
                 placeholder={`Option ${index + 1}`}

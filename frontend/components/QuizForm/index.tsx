@@ -1,29 +1,29 @@
-import { useState, type FormEvent } from "react";
+import { useState, type FormEvent } from 'react';
 
-import type { CreateQuizData } from "@models/createQuizData";
+import type { CreateQuizData } from '@models/createQuizData';
 
-import QuestionEditor from "./components/QuestionEditor";
-import { createQuizSchema } from "schemas/quiz";
+import QuestionEditor from './components/QuestionEditor';
+import { createQuizSchema } from 'schemas/quiz';
 
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
 type IProps = {
   onSubmit: (data: CreateQuizData) => void;
 };
 
 export default function QuizForm({ onSubmit }: IProps) {
-  const [title, setTitle] = useState("");
-  const [questions, setQuestions] = useState<CreateQuizData["questions"]>([]);
+  const [title, setTitle] = useState('');
+  const [questions, setQuestions] = useState<CreateQuizData['questions']>([]);
 
   const addQuestion = () => {
     setQuestions((prev) => [
       ...prev,
       {
         id: crypto.randomUUID(),
-        text: "",
-        type: "INPUT",
+        text: '',
+        type: 'INPUT',
         options: [],
-        correctAnswer: "",
+        correctAnswer: '',
       },
     ]);
   };
@@ -47,18 +47,18 @@ export default function QuizForm({ onSubmit }: IProps) {
 
     await onSubmit(result.data);
 
-    setTitle("");
+    setTitle('');
     setQuestions([]);
   };
 
   return (
-    <form className={styles["quiz-form"]} onSubmit={handleSubmit}>
-      <label htmlFor="title" className={styles["quiz-form__title"]}>
+    <form className={styles['quiz-form']} onSubmit={handleSubmit}>
+      <label htmlFor="title" className={styles['quiz-form__title']}>
         Quiz title
       </label>
 
       <input
-        className={styles["quiz-form__input"]}
+        className={styles['quiz-form__input']}
         id="title"
         type="text"
         value={title}
@@ -84,15 +84,15 @@ export default function QuizForm({ onSubmit }: IProps) {
         />
       ))}
 
-      <div className={styles["quiz-form__actions"]}>
+      <div className={styles['quiz-form__actions']}>
         <button
-          className={styles["quiz-form__button"]}
+          className={styles['quiz-form__button']}
           type="button"
           onClick={addQuestion}
         >
           Add question
         </button>
-        <button className={styles["quiz-form__button"]} type="submit">
+        <button className={styles['quiz-form__button']} type="submit">
           Create quiz
         </button>
       </div>

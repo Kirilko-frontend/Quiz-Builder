@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import { deleteQuiz, getQuizzes } from "@services/quizzes";
+import { deleteQuiz, getQuizzes } from '@services/quizzes';
 
-import type { QuizListItem } from "@models/quizListItem";
+import type { QuizListItem } from '@models/quizListItem';
 
-import QuizList from "@components/QuizList";
+import QuizList from '@components/QuizList';
 
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
 export default function QuizzesPage() {
   const [quizzes, setQuizzes] = useState<QuizListItem[]>([]);
@@ -24,8 +24,8 @@ export default function QuizzesPage() {
   };
 
   return (
-    <main className={styles["quizzes-page"]}>
-      <h1 className={styles["quizzes-page__title"]}>Quizzes</h1>
+    <main className={styles['quizzes-page']}>
+      <h1 className={styles['quizzes-page__title']}>Quizzes</h1>
 
       <QuizList quizzes={quizzes} onDelete={handleDelete} />
     </main>

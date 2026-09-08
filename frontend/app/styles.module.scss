@@ -1,7 +1,7 @@
-@use "sass:map";
+@use 'sass:map';
 
-@use "@styles/mixins" as *;
-@use "@styles/variables" as *;
+@use '@styles/mixins' as *;
+@use '@styles/variables' as *;
 
 .home-page {
   @include flex-center;

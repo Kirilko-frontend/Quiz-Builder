@@ -10,7 +10,5 @@ const questionSchema = z.object({
 
 export const createQuizSchema = z.object({
   title: z.string().min(1, 'Quiz title is required'),
-  questions: z
-    .array(questionSchema)
-    .min(1, 'Add at least one question'),
+  questions: z.array(questionSchema).min(1, 'Add at least one question'),
 });

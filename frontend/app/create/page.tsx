@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { createQuiz } from "@services/quizzes";
+import { createQuiz } from '@services/quizzes';
 
-import { CreateQuizData } from "@models/createQuizData";
+import { CreateQuizData } from '@models/createQuizData';
 
-import QuizForm from "@components/QuizForm";
+import QuizForm from '@components/QuizForm';
 
-import styls from "./styles.module.scss";
+import styls from './styles.module.scss';
 
 export default function CreateQuizPage() {
   const handleCreateQuiz = async (data: CreateQuizData) => {
@@ -14,7 +14,7 @@ export default function CreateQuizPage() {
   };
 
   return (
-    <div className={styls["create-quiz-page"]}>
+    <div className={styls['create-quiz-page']}>
       <QuizForm onSubmit={handleCreateQuiz} />
     </div>
   );

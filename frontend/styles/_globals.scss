@@ -1,18 +1,18 @@
-@use "sass:list";
-@use "sass:meta";
+@use 'sass:list';
+@use 'sass:meta';
 
-@use "./variables" as *;
+@use './variables' as *;
 
 :root {
   @each $key, $value in $theme {
-    @if meta.type-of($value) == "list" {
-      $value-str: "";
+    @if meta.type-of($value) == 'list' {
+      $value-str: '';
 
       @for $i from 1 through list.length($value) {
         $value-str: $value-str + list.nth($value, $i);
 
         @if $i != list.length($value) {
-          $value-str: $value-str + ", ";
+          $value-str: $value-str + ', ';
         }
       }
 
