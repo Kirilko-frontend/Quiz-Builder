@@ -10,7 +10,14 @@ import styls from './styles.module.scss';
 
 export default function CreateQuizPage() {
   const handleCreateQuiz = async (data: CreateQuizData) => {
-    await createQuiz(data);
+    try {
+      await createQuiz(data);
+    } catch (error) {
+      console.error('Failed to create quiz:', error);
+      alert('Failed to create quiz. Please try again.');
+
+      throw error;
+    }
   };
 
   return (

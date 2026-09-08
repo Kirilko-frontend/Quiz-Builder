@@ -43,8 +43,6 @@ export default function QuizForm({ onSubmit }: IProps) {
       return;
     }
 
-    console.log(result.data);
-
     await onSubmit(result.data);
 
     setTitle('');
