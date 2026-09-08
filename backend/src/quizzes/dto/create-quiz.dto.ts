@@ -23,7 +23,7 @@ export class CreateQuizDto {
 }
 
 export class CreateQuestionDto {
-@IsUUID()
+  @IsUUID()
   id: string;
 
   @IsString()
