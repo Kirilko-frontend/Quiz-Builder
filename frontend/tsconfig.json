@@ -25,6 +25,7 @@
       "@components/*": ["./components/*"],
       "@services/*": ["./services/*"],
       "@styles/*": ["./styles/*"],
+      "@models/*": ["./types/*"],
       "@assets/*": ["./assets/*"]
     }
   },
