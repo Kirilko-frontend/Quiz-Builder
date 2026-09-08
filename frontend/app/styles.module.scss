@@ -1,10 +1,13 @@
+@use "sass:map";
+
 @use "@styles/mixins" as *;
+@use "@styles/variables" as *;
 
 .home-page {
   @include flex-center;
 
   width: 100%;
-  min-height: calc(100vh - 2rem);
+  min-height: calc(100vh - var(--spacing-lg));
 
   padding: var(--spacing-lg);
 }
@@ -12,6 +15,7 @@
 .home-page__hero {
   @include flex-column-center;
 
+  gap: var(--spacing-xl);
   width: 100%;
   max-width: 48rem;
 
@@ -40,7 +44,7 @@
 
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-extrabold);
-  line-height: 1.15;
+  line-height: var(--line-height-sm);
   letter-spacing: -0.03em;
 }
 
@@ -57,6 +61,7 @@
 
 .home-page__actions {
   @include flex-column;
+
   gap: var(--spacing-sm);
 
   width: 100%;
@@ -87,12 +92,15 @@
 
 .home-page__button {
   background-color: rgb(var(--color-accent));
+
   color: rgb(var(--color-white));
 }
 
 .home-page__button:hover {
   background-color: rgb(var(--color-accent-hover));
+
   transform: translateY(-1px);
+
   box-shadow: var(--shadow-md);
 }
 
@@ -106,18 +114,19 @@
 
 .home-page__button-secondary:hover {
   background-color: rgb(var(--color-surface-muted));
+
   transform: translateY(-1px);
 }
 
 .home-page__button:focus-visible,
 .home-page__button-secondary:focus-visible {
-  outline: 3px solid rgb(var(--color-accent), 0.2);
+  outline: 3px solid rgb(var(--color-accent) / 0.2);
   outline-offset: 2px;
 }
 
-@media (min-width: 640px) {
+@media (min-width: map.get($breakpoints, sm)) {
   .home-page {
-    min-height: calc(100vh - 3rem);
+    min-height: calc(100vh - var(--spacing-xl));
 
     padding: var(--spacing-xl);
   }
@@ -139,7 +148,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: map.get($breakpoints, md)) {
   .home-page__title {
     font-size: 3.5rem;
   }
