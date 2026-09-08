@@ -7,6 +7,7 @@ import {
   IsEnum,
   IsNotEmpty,
   IsString,
+  IsUUID,
   ValidateNested,
 } from 'class-validator';
 
@@ -22,6 +23,9 @@ export class CreateQuizDto {
 }
 
 export class CreateQuestionDto {
+@IsUUID()
+  id: string;
+
   @IsString()
   @IsNotEmpty()
   text: string;

@@ -12,6 +12,7 @@ export class QuizzesService {
         title: createQuizDto.title,
         questions: {
           create: createQuizDto.questions.map((question) => ({
+            id: question.id,
             text: question.text,
             type: question.type,
             options: question.options,
