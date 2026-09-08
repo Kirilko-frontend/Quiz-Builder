@@ -1,0 +1,94 @@
+@use "@styles/mixins" as *;
+
+.question-editor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+
+  padding: var(--spacing-lg);
+
+  background-color: rgb(var(--color-surface-muted));
+  border: 1px solid rgb(var(--color-border));
+  border-radius: var(--radius-lg);
+}
+
+.question-editor__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+.question-editor__number {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: rgb(var(--color-black));
+}
+
+.question-editor__remove {
+  padding: var(--spacing-xs) var(--spacing-sm);
+
+  border: 0;
+  border-radius: var(--radius-sm);
+
+  background-color: transparent;
+  color: rgb(var(--color-danger));
+
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.question-editor__remove:hover {
+  background-color: rgb(var(--color-danger), 0.08);
+}
+
+.question-editor__label {
+  @include flex-column;
+  gap: var(--spacing-xs);
+
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: rgb(var(--color-black));
+}
+
+.question-editor__input,
+.question-editor__select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 var(--spacing-md);
+
+  border: 1px solid rgb(var(--color-border));
+  border-radius: var(--radius-md);
+
+  background-color: rgb(var(--color-surface));
+  color: rgb(var(--color-text));
+
+  outline: none;
+}
+
+.question-editor__input:focus,
+.question-editor__select:focus {
+  border-color: rgb(var(--color-accent));
+  box-shadow: 0 0 0 3px rgb(var(--color-accent), 0.12);
+}
+
+.question-editor__answers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.question-editor__option {
+  @include flex-start;
+  gap: var(--spacing-sm);
+
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: rgb(var(--color-black));
+}
+
+.question-editor__checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}

@@ -1,27 +1,18 @@
-import { api } from './api';
+import { api } from "./api";
 
-import type { Quiz } from '@models/quiz';
-import type { QuizListItem } from '@models/quizListItem';
-
-type CreateQuizData = {
-  title: string;
-  questions: {
-    text: string;
-    type: 'BOOLEAN' | 'INPUT' | 'CHECKBOX';
-    options: string[];
-    correctAnswer: unknown;
-  }[];
-};
+import type { Quiz } from "@models/quiz";
+import type { QuizListItem } from "@models/quizListItem";
+import { CreateQuizData } from "@models/createQuizData";
 
 export function createQuiz(data: CreateQuizData) {
-  return api<Quiz>('/quizzes', {
-    method: 'POST',
+  return api<Quiz>("/quizzes", {
+    method: "POST",
     body: JSON.stringify(data),
   });
 }
 
 export function getQuizzes() {
-  return api<QuizListItem[]>('/quizzes');
+  return api<QuizListItem[]>("/quizzes");
 }
 
 export function getQuiz(id: string) {
@@ -30,6 +21,6 @@ export function getQuiz(id: string) {
 
 export function deleteQuiz(id: string) {
   return api<{ message: string }>(`/quizzes/${id}`, {
-    method: 'DELETE',
+    method: "DELETE",
   });
 }
