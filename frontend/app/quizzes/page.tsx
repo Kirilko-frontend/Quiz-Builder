@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 
-import { getQuizzes } from "@services/quizzes";
+import { deleteQuiz, getQuizzes } from "@services/quizzes";
 
-import { QuizListItem } from "@models/quizListItem";
+import type { QuizListItem } from "@models/quizListItem";
 
 import QuizList from "@components/QuizList";
 
@@ -17,11 +17,17 @@ export default function QuizzesPage() {
     getQuizzes().then(setQuizzes);
   }, []);
 
+  const handleDelete = async (id: string) => {
+    await deleteQuiz(id);
+
+    setQuizzes((prev) => prev.filter((quiz) => quiz.id !== id));
+  };
+
   return (
     <main className={styles["quizzes-page"]}>
       <h1 className={styles["quizzes-page__title"]}>Quizzes</h1>
 
-      <QuizList quizzes={quizzes} />
+      <QuizList quizzes={quizzes} onDelete={handleDelete} />
     </main>
   );
 }

@@ -8,8 +8,11 @@
 }
 
 .quiz-list__item {
-  @include flex-column;
-  gap: var(--spacing-sm);
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   padding: var(--spacing-md);
 
@@ -23,6 +26,43 @@
   transition:
     box-shadow var(--transition-fast),
     transform var(--transition-fast);
+}
+
+.quiz-list__link {
+  flex: 1;
+
+  text-decoration: none;
+}
+
+.quiz-list__delete {
+  flex-shrink: 0;
+
+  width: 36px;
+  height: 36px;
+
+  border: 0;
+  border-radius: var(--radius-sm);
+
+  background-color: transparent;
+
+  color: rgb(var(--color-danger));
+
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+
+  cursor: pointer;
+
+  transition: background-color var(--transition-fast);
+}
+
+.quiz-list__delete:hover {
+  background-color: rgb(var(--color-danger), 0.08);
+}
+
+@media (min-width: 640px) {
+  .quiz-list__item {
+    padding: var(--spacing-lg);
+  }
 }
 
 .quiz-list__item:hover {
