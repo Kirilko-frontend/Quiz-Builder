@@ -1,19 +1,27 @@
+@use "sass:map";
+
+@use "@styles/variables" as *;
+
 .quizzes-page {
   width: 100%;
   max-width: 64rem;
+
   margin: 0 auto;
+
   padding: var(--spacing-lg);
 }
 
 .quizzes-page__title {
-  margin-bottom: var(--spacing-lg);
+  margin: 0 0 var(--spacing-lg);
+
+  color: rgb(var(--color-text));
 
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
-  color: rgb(var(--color-text));
+  line-height: var(--line-height-sm);
 }
 
-@media (min-width: 640px) {
+@media (min-width: map.get($breakpoints, sm)) {
   .quizzes-page {
     padding: var(--spacing-xl);
   }
@@ -23,7 +31,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: map.get($breakpoints, md)) {
   .quizzes-page {
     padding: var(--spacing-2xl);
   }
